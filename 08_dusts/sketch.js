@@ -2,19 +2,24 @@ let capture;
 let prevFrame;
 let particles = [];
 
+let displayX, displayY;
+
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(windowWidth, windowHeight);
   capture = createCapture(VIDEO);
   capture.size(640, 480);
   capture.hide();
 
   prevFrame = capture.get(0, 0, 640, 480);
 
+  displayX = (width-capture.width)/2;
+  displayY = (height-capture.height)/2;
+
 }
 
 function draw() {
-  background(255);
-  image(capture, (width-capture.width)/2, (height-capture.height)/2, 640, 480);
+  background(0);
+  image(capture, displayX, displayY, 640, 480);
   // image(prevFrame, 0, 0,  640, 480);
 
   capture.loadPixels();
@@ -33,7 +38,7 @@ function draw() {
       let d = dist(r, g, b, pr, pg, pb);
 
       if (d > 80) {
-        particles.push(new Particle(x, y, color(r, g, b)));
+        particles.push(new Particle(displayX+x, displayY+y, color(r, g, b)));
       }
     }
   }
