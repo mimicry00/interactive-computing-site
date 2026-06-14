@@ -4,7 +4,7 @@ let faces = [];
 let options = {
 	maxFaces: 1,
 	refineLandmarks: false,
-	flipHorizontal: false
+	flipHorizontal: true
 };
 
 let lipsExterior = [
@@ -24,7 +24,7 @@ function preload() {
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	video = createCapture(VIDEO);
+	video = createCapture(VIDEO, {flipped:true});
 	video.size(640, 480);
 	video.hide();
 
