@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Computing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <span class="class-title">Interactive Computing</span>
+    <span class="sketch-title"></span>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <iframe
+      id="sketch-frame"
+      allow="camera; microphone"
+      allowfullscreen
+    ></iframe>
+  </main>
+
+  <nav class="sidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <button class="close-btn" aria-label="Close menu"></button>
+    </div>
+    <div class="sidebar-body">
+      <ul class="sketch-list"></ul>
+    </div>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
