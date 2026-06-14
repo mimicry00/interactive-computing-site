@@ -29,7 +29,7 @@ header {
 .class-title {
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: rgba(200, 200, 200, 0.9);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -39,7 +39,7 @@ header {
 .sketch-title {
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: rgba(200, 200, 200, 0.9);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -67,7 +67,7 @@ header {
   display: block;
   width: 100%;
   height: 2px;
-  background: #fff;
+  background: rgba(200, 200, 200, 0.9);
 }
 
 /* ── Sketch iframe ───────────────────────────── */
