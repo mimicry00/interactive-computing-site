@@ -14,7 +14,7 @@ function setup() {
 
 function draw() {
   background(255);
-  image(capture, (width-capture.width)/2, 0, 640, 480);
+  image(capture, (width-capture.width)/2, (height-capture.height)/2, 640, 480);
   // image(prevFrame, 0, 0,  640, 480);
 
   capture.loadPixels();
