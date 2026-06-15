@@ -5,7 +5,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   cols = width/160+1;
-  rows = height/160;
+  rows = height/160+1;
 }
 
 function draw() {
