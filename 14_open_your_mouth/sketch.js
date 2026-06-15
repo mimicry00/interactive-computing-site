@@ -7,6 +7,9 @@ let options = {
 	flipHorizontal: true
 };
 
+
+
+
 let lipsExterior = [
 	267, 269, 270, 409, 291, 375, 321, 405, 314, 17, 84, 181, 91, 146, 61, 185, 40, 39, 37, 0,
 ];
