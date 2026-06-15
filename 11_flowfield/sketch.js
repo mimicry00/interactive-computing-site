@@ -5,7 +5,7 @@ let scl = 20;
 let cols, rows;
 let t=0;
 
-let off = 0.01;
+let off = 0.005;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -28,9 +28,9 @@ function draw() {
   for(let x=0; x<cols; x++) {
     for(let y=0; y<rows; y++) {
       let n = noise(x*off, y*off, t);
-      let angle = map(n, 0, 1, 0, TWO_PI*8);
+      let angle = map(n, 0, 1, 0, TWO_PI*4);
       let v = p5.Vector.fromAngle(angle);
-      v.setMag(0.08);
+      v.setMag(0.1);
 
       flowfield.push(v);
 
