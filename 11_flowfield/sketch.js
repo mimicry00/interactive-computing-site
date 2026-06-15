@@ -3,34 +3,34 @@ let flowfield = [];
 
 let scl = 20;
 let cols, rows;
-let t=0;
+let t = 0;
 
-let off = 0.005;
+let off = 0.01;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  cols = floor(width/scl);
-  rows = floor(height/scl);
+  cols = floor(width / scl);
+  rows = floor(height / scl);
 
-  for(let i=0; i<4000; i++) {
+  for (let i = 0; i < 4000; i++) {
     particles.push(new Particle(random(width), random(height)));
   }
 
 }
 
 function draw() {
-  // background(255);
+  if (frameCount % (12 * 60) === 0) background(255);
   // noLoop();
 
-	flowfield = []; //****
+  flowfield = []; //****
 
-  for(let x=0; x<cols; x++) {
-    for(let y=0; y<rows; y++) {
-      let n = noise(x*off, y*off, t);
-      let angle = map(n, 0, 1, 0, TWO_PI*4);
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      let n = noise(x * off, y * off, t);
+      let angle = map(n, 0, 1, 0, TWO_PI * 4);
       let v = p5.Vector.fromAngle(angle);
-      v.setMag(0.1);
+      v.setMag(0.08);
 
       flowfield.push(v);
 
@@ -46,7 +46,7 @@ function draw() {
   t += off;
 
 
-  for(let i=0; i<particles.length; i++) {
+  for (let i = 0; i < particles.length; i++) {
     particles[i].addForce();
     particles[i].update();
     particles[i].show();
@@ -75,33 +75,33 @@ class Particle {
   }
 
   addForce() {
-    let xx = floor(this.pos.x/scl);
-    let yy = floor(this.pos.y/scl);
-    let index = xx + yy*cols;
+    let xx = floor(this.pos.x / scl);
+    let yy = floor(this.pos.y / scl);
+    let index = xx + yy * cols;
     this.acc.add(flowfield[index]);
     this.updatePrev();
   }
 
   show() {
-    stroke(0, 20);
+    stroke(0, 10);
     strokeWeight(1);
     line(this.pos.x, this.pos.y, this.prev.x, this.prev.y);
   }
 
   edges() {
-    if(this.pos.x > width) {
+    if (this.pos.x > width) {
       this.pos.x = 0;
       this.updatePrev();
     }
-    if(this.pos.x < 0) {
+    if (this.pos.x < 0) {
       this.pos.x = width;
       this.updatePrev();
     }
-    if(this.pos.y > height) {
+    if (this.pos.y > height) {
       this.pos.y = 0;
       this.updatePrev();
     }
-    if(this.pos.y < 0) {
+    if (this.pos.y < 0) {
       this.pos.y = height;
       this.updatePrev();
     }
