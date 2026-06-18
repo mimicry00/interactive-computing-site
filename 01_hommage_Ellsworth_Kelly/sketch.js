@@ -2,7 +2,10 @@ let rad1 = 0,
 	rad2 = 0;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight);
+
+  cols = width/160+1;
+  rows = height/160+1;
 }
 
 function draw() {
